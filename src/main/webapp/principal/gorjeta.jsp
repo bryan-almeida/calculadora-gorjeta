@@ -30,12 +30,12 @@
 			 </div>
 			<div class="mb-3">
 			    <label for="valorServico" class="form-label">VALOR DO SERVIÇO: </label>
-			    <input type="number" class="form-control" name="valorServico" id="valorServico" value="${modelGorjeta.valorServico}">
+			    <input type="number" placeholder="R$" class="form-control" name="valorServico" id="valorServico" value="${modelGorjeta.valorServico}">
 			 </div>
 			  <div class="mb-3">
 			    <label for="exampleInputPassword1" class="form-label">PORCENTAGEM DA GORJETA: </label>
-			    <select class="form-select" name="porcentagemGorjeta" id="porcentagemGorjeta" value="${modelGorjeta.numeroPessoa}">
-				  <option selected>Selecione a Porcentagem</option>
+			    <select value="5" class="form-select" name="porcentagemGorjeta" id="porcentagemGorjeta" value="${modelGorjeta.numeroPessoa}">
+				  <option value="">Selecione a Porcentagem</option>
 				  <option value="5">5%</option>
 				  <option value="10">10%</option>
 				  <option value="15">15%</option>
@@ -46,9 +46,9 @@
 			  
 			  
 			  <div class="mb-3">
-			    <div>VALOR DA GORJETA: <span class="fw-bold">R$ <input type="text" class="border-0" value="${modelGorjeta.calcularGorjeta()}"></span></div>
-			    <div>VALOR TOTAL: <span class="fw-bold">R$ <input type="text" class="border-0" value="${modelGorjeta.calcularTotal()}"></span></div>
-			    <div>TOTAL PARA CADA PESSOA: <span class="fw-bold">R$  <input type="text" class="border-0" value="${modelGorjeta.calcularCadaPessoa()}"></span></div>
+			    <div>VALOR DA GORJETA: <span class="fw-bold">R$ <input type="text" id="numeroFormatado" class="border-0" value="${modelGorjeta.calcularGorjeta()}"></span></div>
+			    <div>VALOR TOTAL: <span class="fw-bold">R$ <input type="number" id="numeroFormatado" class="border-0" value="${modelGorjeta.calcularTotal()}"></span></div>
+			    <div>TOTAL PARA CADA PESSOA: <span class="fw-bold">R$  <input type="number" id="numeroFormatado" class="border-0" value="${modelGorjeta.calcularCadaPessoa()}"></span></div>
 			    
 			 </div>
 			 

@@ -32,24 +32,29 @@ public class ServletGorjeta extends HttpServlet {
 		ModelGorjeta modelGorjeta = new ModelGorjeta();
 		
 		try {
-			modelGorjeta.setNumeroPessoa(numeroPessoa != null && !numeroPessoa.isEmpty() ? Integer.parseInt(numeroPessoa) : null );
-			modelGorjeta.setValorServico(valorServico != null && !valorServico.isEmpty() ? Double.parseDouble(valorServico) : null );
-			modelGorjeta.setPorcentagem(porcentagem != null && !porcentagem.isEmpty() ? Double.parseDouble(porcentagem) : null );
+			if (numeroPessoa != null && !numeroPessoa.isEmpty() &&
+					valorServico != null && !valorServico.isEmpty() &&
+					porcentagem != null && !porcentagem.isEmpty() 
+					) {
+				
+				modelGorjeta.setNumeroPessoa(numeroPessoa != null && !numeroPessoa.isEmpty() ? Integer.parseInt(numeroPessoa) : null );
+				modelGorjeta.setValorServico(valorServico != null && !valorServico.isEmpty() ? Double.parseDouble(valorServico) : null );
+				modelGorjeta.setPorcentagem(porcentagem != null && !porcentagem.isEmpty() ? Double.parseDouble(porcentagem) : null );
+				
+				request.setAttribute("modelGorjeta", modelGorjeta);
+				
+				
+			}
 			
-			
-			String msg = "Deu certo";
-			
-			request.setAttribute("msg", msg);
-			request.setAttribute("modelGorjeta", modelGorjeta);
 			
 			RequestDispatcher redirecionar = request.getRequestDispatcher("/principal/gorjeta.jsp");
 			redirecionar.forward(request, response);	
 		} catch (Exception e) {
 			e.printStackTrace();
 			
-			String msg = "Deu errado";
 			
-			request.setAttribute("msg", msg);
+			
+			
 			RequestDispatcher redirecionar = request.getRequestDispatcher("/principal/gorjeta.jsp");
 			redirecionar.forward(request, response);
 			
